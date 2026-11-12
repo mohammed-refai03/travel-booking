@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1A160D" />
+  <title>404 — Route Off The Map | Stackly Travel</title>
+
+  <!-- Fonts: Plus Jakarta Sans & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Shared Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="error-page-body">
+
+  <main class="error-page" aria-labelledby="error-heading">
+    <!-- Continuous Floating Background Travel Elements -->
+    <div class="error-ambient" aria-hidden="true">
+      <span class="error-float-icon error-float-icon--1"><i class="fa-solid fa-compass"></i></span>
+      <span class="error-float-icon error-float-icon--2"><i class="fa-solid fa-cloud"></i></span>
+      <span class="error-float-icon error-float-icon--3"><i class="fa-solid fa-location-dot"></i></span>
+      <span class="error-float-icon error-float-icon--4"><i class="fa-solid fa-cloud"></i></span>
+      <span class="error-float-icon error-float-icon--5"><i class="fa-solid fa-paper-plane"></i></span>
+    </div>
+
+    <div class="container">
+      <div class="error-card">
+
+        <!-- Brand Mark -->
+        <a href="index.html" class="error-brand" aria-label="Stackly Home" id="error-brand-link">
+          <img src="images/misc/logo.webp" alt="Stackly" class="logo-img" />
+        </a>
+
+        <!-- Continuous Animated 4-0-4 Orbital Flight Graphic -->
+        <div class="error-404-stage" aria-hidden="true">
+          <span class="error-digit">4</span>
+
+          <div class="error-orbit-zero">
+            <span class="error-sonar"></span>
+            <span class="error-sonar error-sonar--delay"></span>
+            <div class="error-flight-ring">
+              <span class="error-orbiting-plane"><i class="fa-solid fa-plane"></i></span>
+            </div>
+            <div class="error-globe-center">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+          </div>
+
+          <span class="error-digit">4</span>
+        </div>
+
+        <div class="error-badge">
+          <span class="beacon-dot"></span>
+          Flight #404 &bull; Destination Not Found
+        </div>
+
+        <h1 id="error-heading" class="error-title">
+          Looks Like This Route<br>Went <span>Off The Map</span>
+        </h1>
+
+        <p class="error-desc">
+          The page or booking feature you requested is taking a scenic detour right now. You can head back to a freshly loaded homepage or jump straight back to the exact section you were viewing.
+        </p>
+
+        <!-- Two Required Navigation Buttons -->
+        <div class="error-actions">
+          <button type="button" id="btn-back-home" class="btn btn--primary btn--lg">
+            <i class="fa-solid fa-house"></i> Back to Home
+          </button>
+          <button type="button" id="btn-go-back" class="btn btn--outline-light btn--lg">
+            <i class="fa-solid fa-arrow-left"></i> Go Back
+          </button>
+        </div>
+
+        <p class="error-return-hint" id="error-return-hint"></p>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const SECTION_LABELS = {
+        hero: 'Hero & Search',
+        'about-immersion': 'Cultural Immersion',
+        destinations: 'Popular Destinations',
+        offers: 'Special Offers',
+        'trip-spotlight': 'Instant Trip Estimator',
+        hotels: 'Featured Luxury Hotels',
+        'why-us': 'Why Choose Us',
+        testimonials: 'Guest Reviews',
+        'contact-map': 'Contact & Salem Office',
+        newsletter: 'Newsletter Subscription',
+        footer: 'Footer'
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const fromParam = params.get('from');
+      const yParam = params.get('y');
+
+      const storedSection = sessionStorage.getItem('stackly_return_section');
+      const storedY = sessionStorage.getItem('stackly_return_scrollY');
+
+      const targetSection = fromParam || storedSection || 'hero';
+      const targetY = yParam !== null ? yParam : (storedY || '0');
+
+      const hintEl = document.getElementById('error-return-hint');
+      if (hintEl && targetSection && SECTION_LABELS[targetSection]) {
+        hintEl.innerHTML = `<i class="fa-solid fa-location-crosshairs"></i> Previous section: <strong>${SECTION_LABELS[targetSection]}</strong>`;
+      }
+
+      function goHomeFresh() {
+        sessionStorage.removeItem('stackly_restore_scroll');
+        sessionStorage.removeItem('stackly_return_section');
+        sessionStorage.removeItem('stackly_return_scrollY');
+        window.location.replace('index.html?fresh=' + Date.now());
+      }
+
+      const backHomeBtn = document.getElementById('btn-back-home');
+      if (backHomeBtn) {
+        backHomeBtn.addEventListener('click', goHomeFresh);
+      }
+
+      const brandLink = document.getElementById('error-brand-link');
+      if (brandLink) {
+        brandLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          goHomeFresh();
+        });
+      }
+
+      const goBackBtn = document.getElementById('btn-go-back');
+      if (goBackBtn) {
+        goBackBtn.addEventListener('click', () => {
+          sessionStorage.setItem('stackly_restore_scroll', JSON.stringify({
+            sectionId: targetSection,
+            y: Number(targetY) || 0
+          }));
+          window.location.href = `index.html#${encodeURIComponent(targetSection)}`;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

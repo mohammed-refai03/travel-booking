@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stackly Travel — Your journey to peace begins here. Discover curated destinations, luxury hotels, and bespoke holiday deals from Salem to the world." />
+  <meta name="keywords" content="Stackly travel, travel booking, luxury hotels, destinations, holiday packages, Salem travel agency" />
+  <meta property="og:title" content="Stackly — Your Journey To Peace Begins Here" />
+  <meta property="og:description" content="Explore 150+ destinations and 1,200+ curated stays with Stackly." />
+  <meta name="theme-color" content="#1A160D" />
+  <title>Stackly — Your Journey To Peace Begins Here</title>
+
+  <!-- Fonts: Plus Jakarta Sans & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- AOS – Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE LOADER
+════════════════════════════════════════════════════════════ -->
+<div id="page-loader" aria-hidden="true">
+  <div class="loader-orbit-scene">
+    <div class="loader-radar-ring"></div>
+    <div class="loader-radar-ring loader-radar-ring--delay"></div>
+    <div class="loader-flight-track">
+      <span class="loader-orbit-plane"><i class="fa-solid fa-plane"></i></span>
+    </div>
+    <div class="loader-globe-core">
+      <i class="fa-solid fa-earth-americas"></i>
+    </div>
+  </div>
+  <div class="loader-logo">Stack<span>ly</span></div>
+  <div class="loader-progress-bar"><span></span></div>
+  <p class="loader-caption">Charting your peaceful journey...</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER & NAVIGATION
+════════════════════════════════════════════════════════════ -->
+<header id="main-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="#hero" class="logo" aria-label="Stackly Home">
+        <img src="images/misc/logo.webp" alt="Stackly" class="logo-img" />
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="active" aria-current="page">Home</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Destinations</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Hotels</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">About</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Services</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="wishlist-trigger" id="wishlist-trigger" aria-label="Open wishlist" onclick="openWishlistPanel()">
+          <i class="fa-solid fa-heart" style="color: var(--accent-ink);"></i>
+          <span id="wishlist-badge" aria-live="polite">0</span>
+        </button>
+        <a href="404.html" class="btn btn--primary btn--sm" onclick="event.preventDefault(); navigateTo404(this);">
+          Login
+        </a>
+        <button id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<div id="nav-overlay" aria-hidden="true"></div>
+<nav id="mobile-nav-menu" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <a href="#hero" class="logo" aria-label="Stackly Home">
+      <img src="images/misc/logo.webp" alt="Stackly" class="logo-img" />
+    </a>
+    <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="#hero" class="active" aria-current="page"><i class="fa-solid fa-house"></i> Home</a></li>
+    <li><a href="404.html" onclick="event.preventDefault(); closeMobileNav(); navigateTo404(this);"><i class="fa-solid fa-earth-americas"></i> Destinations</a></li>
+    <li><a href="404.html" onclick="event.preventDefault(); closeMobileNav(); navigateTo404(this);"><i class="fa-solid fa-hotel"></i> Hotels</a></li>
+    <li><a href="404.html" onclick="event.preventDefault(); closeMobileNav(); navigateTo404(this);"><i class="fa-solid fa-circle-info"></i> About</a></li>
+    <li><a href="404.html" onclick="event.preventDefault(); closeMobileNav(); navigateTo404(this);"><i class="fa-solid fa-compass"></i> Services</a></li>
+    <li><a href="404.html" onclick="event.preventDefault(); closeMobileNav(); navigateTo404(this);"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+  </ul>
+  <div class="mobile-nav-footer">
+    <a href="404.html" class="btn btn--primary mobile-login-btn" onclick="event.preventDefault(); closeMobileNav(); navigateTo404(this);">
+      <i class="fa-solid fa-right-to-bracket"></i> Login
+    </a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO SECTION (Dark Forest Emerald + Search Widget)
+════════════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero — Your Journey To Peace Begins Here">
+  <div class="container">
+
+    <div class="hero-grid">
+      <!-- Left Content -->
+      <div class="hero-content" data-aos="fade-right">
+        <div class="hero-eyebrow">
+          <i class="fa-solid fa-plane"></i> Explore With Stackly
+        </div>
+        <h1 class="hero-title">
+          Your Journey To<br>
+          <span>Peace Begins Here</span>
+        </h1>
+        <p class="hero-subtitle">
+          Discover tranquil beaches, iconic skylines, and handpicked luxury resorts — thoughtfully curated for effortless escapes worldwide.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#destinations" class="btn btn--primary btn--lg">Explore Destinations <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#offers" class="btn btn--outline-light btn--lg">Exclusive Offers</a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="avatar-stack" aria-hidden="true">
+            <span>SM</span>
+            <span>PS</span>
+            <span>JB</span>
+            <span>+</span>
+          </div>
+          <div class="hero-trust-text">
+            <strong>50,000+ Happy Travellers</strong>
+            <span>Rated 4.9 <i class="fa-solid fa-star" style="color:var(--amber)"></i> across 150+ destinations</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="hero-visual" data-aos="fade-left">
+        <div class="hero-photo-frame">
+          <img src="images/misc/hero_bg.webp" alt="Scenic luxury travel destination" />
+        </div>
+        <div class="hero-plane-badge" aria-hidden="true"><i class="fa-solid fa-plane"></i></div>
+        <div class="hero-float-card">
+          <div class="hero-float-icon"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <strong>1,200+ Luxury Stays</strong>
+            <span>Best Price Guaranteed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Destination Search Bar -->
+    <div class="hero-search-wrapper" data-aos="fade-up" data-aos-delay="150">
+      <div class="search-widget" role="search" aria-label="Travel search">
+
+        <div class="search-field">
+          <label for="hero-search-input">Where to?</label>
+          <input
+            type="text"
+            id="hero-search-input"
+            class="search-input"
+            placeholder="Bali, Paris, Maldives..."
+            autocomplete="off"
+            aria-label="Search destinations"
+            aria-autocomplete="list"
+            aria-controls="search-suggestions"
+          />
+          <div id="search-suggestions" role="listbox" aria-label="Destination suggestions"></div>
+        </div>
+
+        <div class="search-field">
+          <label for="check-in-date">Check-in</label>
+          <input type="date" id="check-in-date" class="search-input" aria-label="Check-in date" />
+        </div>
+
+        <div class="search-field">
+          <label for="check-out-date">Check-out</label>
+          <input type="date" id="check-out-date" class="search-input" aria-label="Check-out date" />
+        </div>
+
+        <div class="search-field">
+          <label>Guests &amp; Rooms</label>
+          <button id="guest-picker-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="guest-picker-dropdown">
+            <span id="guest-display">2 Adults, 1 Room</span>
+            <span>▾</span>
+          </button>
+
+          <div id="guest-picker-dropdown" role="dialog" aria-label="Guest and room selection">
+            <div class="counter-row">
+              <div>
+                <span class="counter-label">Adults</span>
+                <span class="counter-sub">Age 13+</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" id="adults-decrease" aria-label="Decrease adults">−</button>
+                <span class="counter-value" id="adults-count">2</span>
+                <button type="button" class="counter-btn" id="adults-increase" aria-label="Increase adults">+</button>
+              </div>
+            </div>
+            <div class="counter-row">
+              <div>
+                <span class="counter-label">Children</span>
+                <span class="counter-sub">Age 2–12</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" id="children-decrease" aria-label="Decrease children">−</button>
+                <span class="counter-value" id="children-count">0</span>
+                <button type="button" class="counter-btn" id="children-increase" aria-label="Increase children">+</button>
+              </div>
+            </div>
+            <div class="counter-row">
+              <div>
+                <span class="counter-label">Rooms</span>
+                <span class="counter-sub">Up to 5 rooms</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" id="rooms-decrease" aria-label="Decrease rooms">−</button>
+                <span class="counter-value" id="rooms-count">1</span>
+                <button type="button" class="counter-btn" id="rooms-increase" aria-label="Increase rooms">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="hero-search-btn" type="button" aria-label="Search destinations">
+          <i class="fa-solid fa-magnifying-glass"></i> Search
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CULTURAL IMMERSION SPLIT SECTION (Light)
+════════════════════════════════════════════════════════════ -->
+<section id="about-immersion" aria-label="Experiencing Traditions and Cultural Immersion">
+  <div class="container">
+    <div class="immersion-grid">
+
+      <div class="immersion-photo-wrap" data-aos="fade-right">
+        <div class="immersion-photo-card">
+          <img src="images/destinations/bali.webp" alt="Cultural immersion in Bali" loading="lazy" />
+        </div>
+      </div>
+
+      <div data-aos="fade-left">
+        <span class="section-eyebrow"><i class="fa-solid fa-leaf"></i> Authentic Experiences</span>
+        <h2 class="section-title">Experiencing Traditions &amp; Cultural Immersion</h2>
+        <p class="section-subtitle">
+          Every journey with Stackly goes beyond sightseeing — connecting you with serene landscapes, rich heritage, and handpicked boutique retreats.
+        </p>
+
+        <div class="immersion-bullets">
+          <div class="immersion-bullet">
+            <div class="immersion-bullet-icon"><i class="fa-solid fa-house-chimney"></i></div>
+            <div>
+              <h4>Curated Boutique &amp; Luxury Stays</h4>
+              <p>Personally inspected villas, ryokans, and beachfront resorts across six continents.</p>
+            </div>
+          </div>
+          <div class="immersion-bullet">
+            <div class="immersion-bullet-icon"><i class="fa-solid fa-compass"></i></div>
+            <div>
+              <h4>Tailored Itineraries &amp; Support</h4>
+              <p>Seamless check-in dates, instant price estimates, and 24/7 dedicated travel concierge.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="immersion-actions">
+          <a href="#hotels" class="btn btn--primary">Browse Featured Hotels <i class="fa-solid fa-arrow-right"></i></a>
+          <div class="rating-pill">
+            <span><i class="fa-solid fa-star" style="color:var(--amber)"></i></span>
+            <div><strong>4.9 / 5.0</strong> Verified Guest Rating</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     POPULAR DESTINATIONS — "Nature's Playground" (Dark Emerald)
+════════════════════════════════════════════════════════════ -->
+<section id="destinations" aria-labelledby="destinations-heading">
+  <div class="container">
+
+    <div class="section-header-center" data-aos="fade-up">
+      <span class="section-eyebrow section-eyebrow--light"><i class="fa-solid fa-earth-asia"></i> Nature's Playground</span>
+      <h2 id="destinations-heading" class="section-title section-title--light">
+        Exploring the Great Outdoors &amp; Cities
+      </h2>
+      <p class="section-subtitle section-subtitle--light">
+        Choose your next escape — filter by beaches, vibrant cities, or serene island getaways.
+      </p>
+    </div>
+
+    <div class="dest-filter-bar" role="tablist" aria-label="Filter destinations by category" data-aos="fade-up" data-aos-delay="100">
+      <button class="dest-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Destinations</button>
+      <button class="dest-filter-btn" data-filter="beach" role="tab" aria-selected="false"><i class="fa-solid fa-umbrella-beach"></i> Beach</button>
+      <button class="dest-filter-btn" data-filter="city" role="tab" aria-selected="false"><i class="fa-solid fa-city"></i> City</button>
+      <button class="dest-filter-btn" data-filter="island" role="tab" aria-selected="false"><i class="fa-solid fa-mountain-sun"></i> Island</button>
+    </div>
+
+    <div id="destinations-grid" role="list" aria-label="Destination listings"></div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SPECIAL OFFERS — Dark Cards on Light Surface
+════════════════════════════════════════════════════════════ -->
+<section id="offers" aria-labelledby="offers-heading">
+  <div class="container">
+
+    <div class="section-header-row" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow"><i class="fa-solid fa-tags"></i> Urban Escapes &amp; Deals</span>
+        <h2 id="offers-heading" class="section-title">Special Promotional Offers</h2>
+        <p class="section-subtitle">
+          Copy an exclusive promo code below and unlock instant savings on your Stackly trip.
+        </p>
+      </div>
+      <a href="404.html" class="btn btn--primary" onclick="event.preventDefault(); navigateTo404(this);">Explore All Stays <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div id="offers-grid" role="list" aria-label="Special promotional offers"></div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     INSTANT TRIP ESTIMATOR BANNER (Dark Rounded Card)
+════════════════════════════════════════════════════════════ -->
+<section id="trip-spotlight" aria-label="Instant booking price estimator">
+  <div class="container">
+    <div class="spotlight-card" data-aos="fade-up">
+
+      <div>
+        <span class="section-eyebrow section-eyebrow--light"><i class="fa-solid fa-compass"></i> Wanderlust Chronicles</span>
+        <h2 class="section-title section-title--light">Instant Trip Price Estimator</h2>
+        <p class="section-subtitle section-subtitle--light">
+          Select a destination and duration to calculate your estimated stay cost including rooms and taxes in real time.
+        </p>
+
+        <div class="spotlight-form-grid">
+          <div class="spotlight-field">
+            <label for="quick-dest-select">Destination</label>
+            <select id="quick-dest-select" class="spotlight-input">
+              <option value="299">Bali, Indonesia ($299/night)</option>
+              <option value="549">Paris, France ($549/night)</option>
+              <option value="899">Maldives ($899/night)</option>
+              <option value="479">Santorini, Greece ($479/night)</option>
+              <option value="399">Tokyo, Japan ($399/night)</option>
+              <option value="349">New York, USA ($349/night)</option>
+            </select>
+          </div>
+          <div class="spotlight-field">
+            <label for="quick-nights-input">Nights</label>
+            <input type="number" id="quick-nights-input" class="spotlight-input" min="1" max="30" value="3" />
+          </div>
+          <div class="spotlight-field">
+            <label for="quick-rooms-input">Rooms</label>
+            <input type="number" id="quick-rooms-input" class="spotlight-input" min="1" max="5" value="1" />
+          </div>
+          <div class="spotlight-field">
+            <label for="quick-guests-input">Guests</label>
+            <input type="number" id="quick-guests-input" class="spotlight-input" min="1" max="12" value="2" />
+          </div>
+        </div>
+
+        <div class="spotlight-estimate-result">
+          <span id="quick-estimate-breakdown">3 nights · 1 room · incl. 12% taxes</span>
+          <strong id="quick-estimate-total">$1,005</strong>
+        </div>
+
+        <button type="button" class="btn btn--primary" onclick="navigateTo404(this)">
+          Reserve This Estimate <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <div class="spotlight-photo">
+        <img src="images/destinations/santorini.webp" alt="Santorini cliffside view" loading="lazy" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SERVICES MARQUEE TICKER
+════════════════════════════════════════════════════════════ -->
+<div class="services-ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-item"><span><i class="fa-solid fa-plane"></i></span> TOUR PACKAGES</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-hotel"></i></span> LUXURY HOTELS</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-passport"></i></span> VISA ASSISTANCE</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-map-location-dot"></i></span> CUSTOM ITINERARIES</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-gem"></i></span> BEST PRICE GUARANTEE</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-plane"></i></span> TOUR PACKAGES</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-hotel"></i></span> LUXURY HOTELS</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-passport"></i></span> VISA ASSISTANCE</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-map-location-dot"></i></span> CUSTOM ITINERARIES</div>
+    <div class="ticker-item"><span><i class="fa-solid fa-gem"></i></span> BEST PRICE GUARANTEE</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     FEATURED HOTELS (Full-Width Control Bar + 3-Col Grid)
+════════════════════════════════════════════════════════════ -->
+<section id="hotels" aria-labelledby="hotels-heading">
+  <div class="container">
+
+    <div class="section-header-row" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow"><i class="fa-solid fa-hotel"></i> Curated Stays</span>
+        <h2 id="hotels-heading" class="section-title">Featured Luxury Hotels</h2>
+        <p class="section-subtitle">
+          Validate your stay dates, choose guests &amp; rooms, filter by price or star rating, and save favourites to your wishlist.
+        </p>
+      </div>
+      <div class="hotels-header-actions">
+        <span class="stay-summary-pill" id="hotel-stay-summary">1 Night · 2 Guests · 1 Room</span>
+        <button type="button" class="btn btn--dark btn--sm" id="hotel-wishlist-trigger" onclick="openWishlistPanel()">
+          <i class="fa-solid fa-heart" style="color:var(--green-light)"></i>
+          Wishlist (<span id="hotel-wishlist-count">0</span>)
+        </button>
+      </div>
+    </div>
+
+    <!-- New Full-Width Booking & Filter Toolbar (No Left Sidebar) -->
+    <div class="hotels-toolbar" data-aos="fade-up" data-aos-delay="80">
+
+      <!-- Row 1: Check-in / Check-out Validation + Guest & Room Selection -->
+      <div class="hotels-booking-bar">
+        <div class="toolbar-field">
+          <label for="hotel-check-in"><i class="fa-regular fa-calendar-check"></i> Check-in Date</label>
+          <input type="date" id="hotel-check-in" class="toolbar-input" aria-label="Hotel check-in date" />
+        </div>
+
+        <div class="toolbar-field">
+          <label for="hotel-check-out"><i class="fa-regular fa-calendar-xmark"></i> Check-out Date</label>
+          <input type="date" id="hotel-check-out" class="toolbar-input" aria-label="Hotel check-out date" />
+        </div>
+
+        <div class="toolbar-field toolbar-field--guests">
+          <label><i class="fa-solid fa-user-group"></i> Guests &amp; Rooms</label>
+          <button id="hotel-guest-toggle" type="button" class="toolbar-input toolbar-guest-btn" aria-expanded="false" aria-haspopup="true" aria-controls="hotel-guest-dropdown">
+            <span id="hotel-guest-display">2 Adults, 1 Room</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div id="hotel-guest-dropdown" class="hotel-guest-dropdown" role="dialog" aria-label="Hotel guest and room selection">
+            <div class="counter-row">
+              <div>
+                <span class="counter-label">Adults</span>
+                <span class="counter-sub">Age 13+</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" id="hotel-adults-decrease" aria-label="Decrease adults"><i class="fa-solid fa-minus"></i></button>
+                <span class="counter-value" id="hotel-adults-count">2</span>
+                <button type="button" class="counter-btn" id="hotel-adults-increase" aria-label="Increase adults"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="counter-row">
+              <div>
+                <span class="counter-label">Children</span>
+                <span class="counter-sub">Age 2–12</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" id="hotel-children-decrease" aria-label="Decrease children"><i class="fa-solid fa-minus"></i></button>
+                <span class="counter-value" id="hotel-children-count">0</span>
+                <button type="button" class="counter-btn" id="hotel-children-increase" aria-label="Increase children"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="counter-row">
+              <div>
+                <span class="counter-label">Rooms</span>
+                <span class="counter-sub">Up to 5 rooms</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" id="hotel-rooms-decrease" aria-label="Decrease rooms"><i class="fa-solid fa-minus"></i></button>
+                <span class="counter-value" id="hotel-rooms-count">1</span>
+                <button type="button" class="counter-btn" id="hotel-rooms-increase" aria-label="Increase rooms"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar-field">
+          <label for="hotel-search"><i class="fa-solid fa-magnifying-glass"></i> Search Stays</label>
+          <input type="text" id="hotel-search" class="toolbar-input" placeholder="Hotel name or city..." aria-label="Search hotels" />
+        </div>
+      </div>
+
+      <!-- Row 2: Price, Rating, Destination, Type, Sort & Reset -->
+      <div class="hotels-filter-bar">
+        <div class="toolbar-field">
+          <label for="hotel-dest-filter">Destination</label>
+          <select id="hotel-dest-filter" class="toolbar-select" aria-label="Filter by destination">
+            <option value="all">All Destinations</option>
+            <option value="Bali">Bali, Indonesia</option>
+            <option value="Paris">Paris, France</option>
+            <option value="New York">New York, USA</option>
+            <option value="Tokyo">Tokyo, Japan</option>
+            <option value="Maldives">Maldives</option>
+            <option value="Santorini">Santorini, Greece</option>
+          </select>
+        </div>
+
+        <div class="toolbar-field toolbar-field--price">
+          <label for="price-max">Max Price / Night: <strong id="price-display">$0 — $2000</strong></label>
+          <input type="range" id="price-max" min="0" max="2000" value="2000" step="50" aria-label="Maximum price per night" />
+        </div>
+
+        <div class="toolbar-field">
+          <label>Star Rating</label>
+          <div class="star-pill-group">
+            <label class="star-pill" for="star-5">
+              <input type="checkbox" id="star-5" class="star-filter-check" value="5" />
+              <span>5 <i class="fa-solid fa-star"></i></span>
+            </label>
+            <label class="star-pill" for="star-4">
+              <input type="checkbox" id="star-4" class="star-filter-check" value="4" />
+              <span>4 <i class="fa-solid fa-star"></i></span>
+            </label>
+            <label class="star-pill" for="star-3">
+              <input type="checkbox" id="star-3" class="star-filter-check" value="3" />
+              <span>3 <i class="fa-solid fa-star"></i></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="toolbar-field">
+          <label for="hotel-category-filter">Property Type</label>
+          <select id="hotel-category-filter" class="toolbar-select" aria-label="Filter by hotel type">
+            <option value="all">All Types</option>
+            <option value="luxury">Luxury</option>
+            <option value="resort">Resort</option>
+            <option value="boutique">Boutique</option>
+            <option value="villa">Villa</option>
+            <option value="city">City Hotel</option>
+            <option value="eco">Eco Lodge</option>
+            <option value="budget">Budget</option>
+          </select>
+        </div>
+
+        <div class="toolbar-field">
+          <label for="hotel-sort">Sort By</label>
+          <select id="hotel-sort" class="toolbar-select" aria-label="Sort hotels">
+            <option value="recommended">Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="hotels-toolbar-meta">
+        <span id="hotel-result-count" aria-live="polite">10 hotels found</span>
+        <button class="filter-reset-btn" id="reset-filters-btn" type="button">
+          <i class="fa-solid fa-rotate-left"></i> Reset all filters
+        </button>
+      </div>
+    </div>
+
+    <div id="hotels-grid" role="list" aria-label="Hotel listings"></div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     WHY CHOOSE US — "Paths Less Traveled" + Stats Banner
+════════════════════════════════════════════════════════════ -->
+<section id="why-us" aria-labelledby="why-us-heading">
+  <div class="container">
+
+    <div class="section-header-row" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow"><i class="fa-solid fa-route"></i> Paths Less Traveled</span>
+        <h2 id="why-us-heading" class="section-title">Why Travellers Choose Stackly</h2>
+      </div>
+      <a href="#contact-map" class="btn btn--primary">Talk to an Expert <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="paths-layout">
+      <div id="features-grid" aria-label="Why choose Stackly features"></div>
+      <div class="paths-side-photo" data-aos="fade-left">
+        <img src="images/destinations/tokyo.webp" alt="Adventure travel experience" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Reality & Stats Banner (Dribbble Band 10) -->
+    <div class="reality-block">
+      <div class="reality-top">
+        <div class="reality-photo" data-aos="fade-right">
+          <img src="images/destinations/maldives.webp" alt="Maldives overwater lagoon" loading="lazy" />
+        </div>
+        <div data-aos="fade-left">
+          <span class="section-eyebrow"><i class="fa-solid fa-compass"></i> Seamless Planning</span>
+          <h3 class="section-title">Where Wanderlust Meets Reality</h3>
+          <p class="section-subtitle">
+            Three effortless steps from inspiration to check-in — backed by real-time availability and dedicated support from our Salem headquarters.
+          </p>
+
+          <div class="steps-row">
+            <div class="step-box">
+              <span class="step-num">01 / DISCOVER</span>
+              <h4>Pick Destination</h4>
+              <p>Filter beaches, cities, or islands with instant pricing.</p>
+            </div>
+            <div class="step-box">
+              <span class="step-num">02 / CUSTOMIZE</span>
+              <h4>Select Dates &amp; Stay</h4>
+              <p>Validate dates, rooms, and view transparent tax totals.</p>
+            </div>
+            <div class="step-box">
+              <span class="step-num">03 / DEPART</span>
+              <h4>Travel Peacefully</h4>
+              <p>Enjoy 24/7 concierge support and flexible booking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-banner" data-aos="fade-up">
+        <div>
+          <span class="section-eyebrow section-eyebrow--light"><i class="fa-solid fa-chart-line"></i> Proven Excellence</span>
+          <h3 class="section-title section-title--light" style="font-size:1.8rem;">
+            Experiencing Traditions &amp; Global Reach
+          </h3>
+          <p class="section-subtitle section-subtitle--light">
+            Trusted by thousands of families, honeymooners, and solo explorers worldwide.
+          </p>
+        </div>
+        <div id="stats-grid" aria-label="Platform statistics"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CUSTOMER TESTIMONIALS (Photo + Overlapping Quote Card)
+════════════════════════════════════════════════════════════ -->
+<section id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+
+    <div class="section-header-center" data-aos="fade-up">
+      <span class="section-eyebrow"><i class="fa-solid fa-comments"></i> Traveller Stories</span>
+      <h2 id="testimonials-heading" class="section-title">What Our Guests Say</h2>
+      <p class="section-subtitle">
+        Verified reviews from real travellers who explored the world with Stackly.
+      </p>
+    </div>
+
+    <div class="testimonial-showcase" data-aos="fade-up" data-aos-delay="100">
+      <div class="testimonial-photo">
+        <img src="images/destinations/paris.webp" alt="Traveller enjoying Paris" loading="lazy" />
+      </div>
+
+      <div class="testimonial-slider-box">
+        <div class="testimonials-slider" aria-label="Customer testimonials slider">
+          <div id="testimonials-track" aria-live="polite"></div>
+        </div>
+
+        <div class="slider-controls">
+          <button id="slider-prev" class="slider-arrow" type="button" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+          <div id="slider-dots" role="tablist" aria-label="Testimonial navigation dots"></div>
+          <button id="slider-next" class="slider-arrow" type="button" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CONTACT, STACKLY ADDRESS & GOOGLE MAP LOCATION
+════════════════════════════════════════════════════════════ -->
+<section id="contact-map" aria-labelledby="contact-heading">
+  <div class="container">
+
+    <div class="contact-grid">
+      <!-- Left: Inquiry Form -->
+      <div class="contact-form-card" data-aos="fade-right">
+        <span class="section-eyebrow"><i class="fa-solid fa-envelope"></i> Plan With Us</span>
+        <h2 id="contact-heading" class="section-title" style="font-size:1.95rem;">Start Your Custom Trip</h2>
+        <p class="section-subtitle" style="margin-bottom:1.5rem;">
+          Have a custom itinerary in mind? Send a message to our travel specialists in Salem.
+        </p>
+
+        <form id="contact-inquiry-form" novalidate>
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" class="contact-input" placeholder="Your name" required />
+            </div>
+            <div class="contact-field">
+              <label for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" class="contact-input" placeholder="9876543210" />
+            </div>
+          </div>
+          <div class="contact-field">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" class="contact-input" placeholder="you@example.com" required />
+          </div>
+          <div class="contact-field">
+            <label for="contact-message">Trip Details</label>
+            <textarea id="contact-message" class="contact-textarea" placeholder="Tell us your dream destination, dates, and preferences..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%;">
+            Send Travel Inquiry <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Stackly Salem Details + Google Map -->
+      <div class="contact-info-card" data-aos="fade-left">
+        <div>
+          <span class="section-eyebrow"><i class="fa-solid fa-location-dot"></i> Visit Stackly</span>
+          <h3 class="section-title" style="font-size:1.95rem;">Voyages of Wonder — Salem Office</h3>
+
+          <div class="office-details-list">
+            <div class="office-detail-item">
+              <div class="office-detail-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Phone Number</strong>
+                <a href="tel:9876543210">9876543210</a>
+              </div>
+            </div>
+            <div class="office-detail-item">
+              <div class="office-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Email Address</strong>
+                <a href="mailto:info@stackly.com">info@stackly.com</a>
+              </div>
+            </div>
+            <div class="office-detail-item">
+              <div class="office-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Office Address</strong>
+                <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-embed-wrap">
+          <iframe
+            title="Stackly Location Map — Salem, Tamil Nadu"
+            src="https://maps.google.com/maps?q=11.6829566,78.1739798+(Stackly)&z=17&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <a
+          href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--dark"
+          style="width:100%;"
+        >
+          <i class="fa-solid fa-map-location-dot"></i> Open Stackly Location in Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     NEWSLETTER SUBSCRIPTION
+════════════════════════════════════════════════════════════ -->
+<section id="newsletter" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-box" data-aos="zoom-in">
+
+      <div>
+        <span class="section-eyebrow"><i class="fa-solid fa-envelope-open-text"></i> Stackly Insider</span>
+        <h2 id="newsletter-heading" class="section-title" style="font-size:2rem;">
+          Subscribe for Exclusive Travel Deals
+        </h2>
+        <p class="section-subtitle">
+          Join our newsletter for flash hotel discounts, seasonal destination guides, and member-only promo codes.
+        </p>
+      </div>
+
+      <div>
+        <form id="newsletter-form" novalidate aria-label="Newsletter subscription form">
+          <input
+            type="email"
+            id="newsletter-email"
+            placeholder="Enter your email address..."
+            aria-label="Email address"
+            autocomplete="email"
+          />
+          <button type="submit" id="newsletter-btn" class="btn btn--primary">
+            Subscribe <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+        <div id="newsletter-error" class="inline-form-error" role="alert" aria-live="polite"></div>
+        <div id="newsletter-success" role="alert">
+          <i class="fa-solid fa-circle-check"></i> Welcome to Stackly Insider! Check your inbox for your first deal.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER (Dark Forest Emerald)
+════════════════════════════════════════════════════════════ -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="logo" aria-label="Stackly Home">
+          <img src="images/misc/logo.webp" alt="Stackly" class="logo-img" />
+        </a>
+        <p>
+          Crafting peaceful, memorable journeys across the globe — connecting travellers from Salem to 150+ breathtaking destinations.
+        </p>
+        <div class="social-links" aria-label="Social media links">
+          <a href="404.html" class="social-link" aria-label="Facebook" onclick="event.preventDefault(); navigateTo404(this);"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="404.html" class="social-link" aria-label="Instagram" onclick="event.preventDefault(); navigateTo404(this);"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" class="social-link" aria-label="Twitter" onclick="event.preventDefault(); navigateTo404(this);"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="404.html" class="social-link" aria-label="YouTube" onclick="event.preventDefault(); navigateTo404(this);"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Bali, Indonesia</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Paris, France</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Maldives</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Santorini, Greece</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Tokyo, Japan</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">New York, USA</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Destinations</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Hotels</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">About</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Services</a></li>
+          <li><a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Stackly</h4>
+        <div class="footer-contact-item">
+          <span><i class="fa-solid fa-location-dot"></i></span>
+          <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+        </div>
+        <div class="footer-contact-item">
+          <span><i class="fa-solid fa-phone"></i></span>
+          <a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">9876543210</a>
+        </div>
+        <div class="footer-contact-item">
+          <span><i class="fa-solid fa-envelope"></i></span>
+          <a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">info@stackly.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <span><i class="fa-solid fa-map-location-dot"></i></span>
+          <a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">View on Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Stackly Travel. All rights reserved.</p>
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Privacy Policy</a>
+        <a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Terms of Service</a>
+        <a href="404.html" onclick="event.preventDefault(); navigateTo404(this);">Support</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     WISHLIST SIDE DRAWER
+════════════════════════════════════════════════════════════ -->
+<div id="wishlist-overlay" aria-hidden="true"></div>
+<div id="wishlist-panel" role="dialog" aria-modal="true" aria-label="Your wishlist">
+  <div class="wishlist-header">
+    <h2><i class="fa-solid fa-heart" style="color:var(--accent-ink)"></i> My Wishlist</h2>
+    <button id="wishlist-close" type="button" aria-label="Close wishlist"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div id="wishlist-content" aria-live="polite"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════════ -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/search.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  function openQuickBookingFromHeader() {
+    if (typeof openBookingModal === 'function') {
+      openBookingModal(1);
+    }
+  }
+
+  function updateQuickSpotlightEstimator() {
+    const destEl = document.getElementById('quick-dest-select');
+    const nightsEl = document.getElementById('quick-nights-input');
+    const roomsEl = document.getElementById('quick-rooms-input');
+    const guestsEl = document.getElementById('quick-guests-input');
+    const breakdownEl = document.getElementById('quick-estimate-breakdown');
+    const totalEl = document.getElementById('quick-estimate-total');
+    if (!destEl || !nightsEl || !roomsEl || !guestsEl) return;
+
+    const rate = parseInt(destEl.value, 10) || 299;
+    const nights = Math.max(1, parseInt(nightsEl.value, 10) || 1);
+    const rooms = Math.max(1, Math.min(5, parseInt(roomsEl.value, 10) || 1));
+    const guests = Math.max(1, parseInt(guestsEl.value, 10) || 1);
+
+    const extraGuests = Math.max(0, guests - rooms * 2);
+    const extraFee = extraGuests * 25 * nights;
+    const roomTotal = rate * rooms * nights;
+    const taxes = Math.round((roomTotal + extraFee) * 0.12);
+    const grandTotal = roomTotal + extraFee + taxes;
+
+    breakdownEl.textContent = `${nights} night${nights > 1 ? 's' : ''} · ${rooms} room${rooms > 1 ? 's' : ''} · incl. $${taxes.toLocaleString()} taxes`;
+    totalEl.textContent = `$${grandTotal.toLocaleString()}`;
+  }
+
+  function openQuickEstimatorModal() {
+    const destEl = document.getElementById('quick-dest-select');
+    const nightsEl = document.getElementById('quick-nights-input');
+    const roomsEl = document.getElementById('quick-rooms-input');
+    const guestsEl = document.getElementById('quick-guests-input');
+    if (!destEl) return;
+
+    const selectedIdx = destEl.selectedIndex + 1;
+    const nights = Math.max(1, parseInt(nightsEl.value, 10) || 1);
+    const rooms = Math.max(1, Math.min(5, parseInt(roomsEl.value, 10) || 1));
+    const guests = Math.max(1, parseInt(guestsEl.value, 10) || 2);
+
+    const ci = document.getElementById('check-in-date');
+    const co = document.getElementById('check-out-date');
+    if (ci && co && ci.value) {
+      const start = new Date(ci.value);
+      const end = new Date(start);
+      end.setDate(start.getDate() + nights);
+      co.value = end.toISOString().split('T')[0];
+      bookingState.checkIn = start;
+      bookingState.checkOut = end;
+    }
+
+    bookingState.rooms = rooms;
+    bookingState.adults = guests;
+    bookingState.children = 0;
+    const roomsCount = document.getElementById('rooms-count');
+    const adultsCount = document.getElementById('adults-count');
+    if (roomsCount) roomsCount.textContent = rooms;
+    if (adultsCount) adultsCount.textContent = guests;
+    if (typeof updateGuestDisplay === 'function') updateGuestDisplay();
+
+    if (typeof openBookingModal === 'function') {
+      openBookingModal(selectedIdx);
+    }
+    const mci = document.getElementById('modal-checkin');
+    const mco = document.getElementById('modal-checkout');
+    if (mci && ci) mci.value = ci.value;
+    if (mco && co) mco.value = co.value;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const ci = document.getElementById('check-in-date');
+    const co = document.getElementById('check-out-date');
+    const mci = document.getElementById('modal-checkin');
+    const mco = document.getElementById('modal-checkout');
+
+    function syncDatesToModal() {
+      if (mci && ci) mci.value = ci.value;
+      if (mco && co) mco.value = co.value;
+    }
+    if (ci) ci.addEventListener('change', syncDatesToModal);
+    if (co) co.addEventListener('change', syncDatesToModal);
+    setTimeout(syncDatesToModal, 100);
+
+    ['quick-dest-select', 'quick-nights-input', 'quick-rooms-input', 'quick-guests-input'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', updateQuickSpotlightEstimator);
+      if (el) el.addEventListener('change', updateQuickSpotlightEstimator);
+    });
+    updateQuickSpotlightEstimator();
+  });
+</script>
+
+</body>
+</html>
